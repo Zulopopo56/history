@@ -9,12 +9,13 @@ class MainMenu:
         self.title = ctk.CTkLabel(self.frame, text="History test", font=ctk.CTkFont(size=26, weight="bold"))
         self.title.pack(pady=30)
 
-        self.start_button = ctk.CTkButton(self.frame, text="Start", width=200, height=50)
+        self.start_button = ctk.CTkButton(self.frame, text="Start", command=self.start_button_callback, width=200, height=50)
         self.start_button.pack(pady=20)
 
         self.exit_button = ctk.CTkButton(self.frame, text="Quit", command=self.root.quit, width=200, height=50)
         self.exit_button.pack(pady=20)
-        
+    def start_button_callback(self):
+        print("Start button clicked")
 app = ctk.CTk()
 app.geometry("600x700")
 ctk.set_appearance_mode("dark")
