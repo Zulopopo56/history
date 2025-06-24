@@ -16,6 +16,26 @@ class MainMenu:
         self.exit_button.pack(pady=20)
     def start_button_callback(self):
         print("Start button clicked")
+        self.frame.destroy()
+        Theme_ChoiceMenu(self.root, self)
+class Theme_ChoiceMenu:
+    def __init__(self, root, main_menu):
+        self.root = root
+        self.main_menu = main_menu
+        self.frame = ctk.CTkFrame(master=root, width=300, height=300)
+        self.frame.pack(expand=True)
+        self.frame.pack_propagate(False)
+
+        self.title = ctk.CTkLabel(self.frame, text="Choose a theme", font=ctk.CTkFont(size=24, weight="bold"))
+        self.title.pack(pady=20)
+
+        self.back_button = ctk.CTkButton(self.frame, text="Back", command=self.back_button_callback, width=200, height=50)
+        self.back_button.pack(pady=20)
+
+    def back_button_callback(self):
+        print("Back button clicked")
+        self.frame.destroy()
+        main_menu= MainMenu(app)
 app = ctk.CTk()
 app.geometry("600x700")
 ctk.set_appearance_mode("dark")
