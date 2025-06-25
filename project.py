@@ -1,5 +1,6 @@
 import customtkinter as ctk
-from PIL import Image 
+from PIL import Image
+import json
 class MainMenu:
     def __init__(self, root):
         self.root = root
@@ -78,12 +79,16 @@ class QuestionMenu:
     def __init__(self, root, theme):
         self.root = root
         self.theme = theme
+        with open("questions.json", "r", encoding="utf-8") as f:
+            all_questions = json.load(f)
         self.frame = ctk.CTkFrame(master=root, width=500, height=600)
         self.frame.pack(expand=True)
         self.frame.pack_propagate(False)
 
         self.title = ctk.CTkLabel(self.frame, text=f"Questions for {theme}", font=ctk.CTkFont(size=24, weight="bold"))
         self.title.pack(pady=20)
+        self.question_text = ctk.CTkLabel(self.frame, text=all_questions[theme]["question"], font=ctk.CTkFont(size=24, weight="bold"))
+        self.question_text.pack(pady=20)
 
         self.back_button = ctk.CTkButton(self.frame, text="Back", command=self.back_button_callback, width=200, height=50)
         self.back_button.pack(pady=20)
