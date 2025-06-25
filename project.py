@@ -95,9 +95,6 @@ class QuestionMenu:
         
         self.back_button = BackButton(self.frame, command=self.back_button_callback)
 
-        self.title = ctk.CTkLabel(self.frame, text=f"Questions for {topic}", font=ctk.CTkFont(size=24, weight="bold"))
-        self.title.pack(pady=20)
-
         self.create_question(self.all_questions) 
         
     def check_answer(self, selected_option):
@@ -128,8 +125,6 @@ class QuestionMenu:
         
         self.options_frame = ctk.CTkFrame(self.frame)
         self.options_frame.pack(side="bottom", pady=30)
-        
-        
         
         self.options = self.current_question["choices"]
         sequence =[0,1,2,3]

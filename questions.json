@@ -120,5 +120,372 @@
             "question": "What was the name of the French national anthem born during the Revolution?",
             "choices": ["La Marseillaise", "Ode to Joy", "Rule Britannia", "Carmagnole"]
         }
-    ]
+    ],
+    "WWI":[
+        {
+            "question": "What event started World War I?",
+            "choices": ["Archduke killed", "Germany invaded", "France attacked", "U-boats sank ship"]
+        },
+        {
+            "question": "Who was the Archduke killed in 1914?",
+            "choices": ["Franz Ferdinand", "Franz Joseph", "Kaiser Wilhelm", "Otto von Bismarck"]
+        },
+        {
+            "question": "Which alliance included Germany?",
+            "choices": ["Central Powers", "Triple Entente", "League of Nations", "Eastern Front"]
+        },
+        {
+            "question": "Which side was France on?",
+            "choices": ["Allied Powers", "Axis Powers", "Central Powers", "Triple Axis"]
+        },
+        {
+            "question": "Where was trench warfare most used?",
+            "choices": ["Western Front", "Eastern Front", "Italy Front", "Balkan Front"]
+        },
+        {
+            "question": "Which weapon was new in WWI?",
+            "choices": ["Poison gas", "Muskets", "Catapults", "Crossbows"]
+        },
+        {
+            "question": "Which country joined in 1917?",
+            "choices": ["USA", "Italy", "Spain", "Greece"]
+        },
+        {
+            "question": "Who ruled Germany in WWI?",
+            "choices": ["Kaiser Wilhelm", "Hitler", "Hindenburg", "Ludendorff"]
+        },
+        {
+            "question": "When did World War I start?",
+            "choices": ["1914", "1912", "1916", "1918"]
+        },
+        {
+            "question": "When did World War I end?",
+            "choices": ["1918", "1917", "1920", "1922"]
+        },
+        {
+            "question": "Which country switched sides?",
+            "choices": ["Italy", "Germany", "Russia", "Turkey"]
+        },
+        {
+            "question": "Which empire collapsed?",
+            "choices": ["Ottoman", "British", "Dutch", "Japanese"]
+        },
+        {
+            "question": "Who was British PM in WWI?",
+            "choices": ["David Lloyd George", "Winston Churchill", "Tony Blair", "Neville Chamberlain"]
+        },
+        {
+            "question": "Who led Russia in 1914?",
+            "choices": ["Tsar Nicholas II", "Lenin", "Stalin", "Trotsky"]
+        },
+        {
+            "question": "What was 'no man's land'?",
+            "choices": ["Between trenches", "German base", "Naval zone", "City ruins"]
+        },
+        {
+            "question": "Which warship was sunk in 1915?",
+            "choices": ["Lusitania", "Bismarck", "Titanic", "Warspite"]
+        },
+        {
+            "question": "Who used U-boats?",
+            "choices": ["Germany", "Britain", "Russia", "USA"]
+        },
+        {
+            "question": "What treaty ended the war?",
+            "choices": ["Versailles", "Trianon", "Vienna", "Munich"]
+        },
+        {
+            "question": "Which country started WWI?",
+            "choices": ["Austria-Hungary", "Germany", "Serbia", "Russia"]
+        },
+        {
+            "question": "Which nation left the war early?",
+            "choices": ["Russia", "Italy", "USA", "France"]
+        },
+        {
+            "question": "Which empire was Serbia in?",
+            "choices": ["Austria-Hungary", "Ottoman", "German", "French"]
+        },
+        {
+            "question": "What battle lasted 10 months?",
+            "choices": ["Verdun", "Marne", "Ypres", "Somme"]
+        },
+        {
+            "question": "Which battle had tanks first?",
+            "choices": ["Somme", "Verdun", "Marne", "Gallipoli"]
+        },
+        {
+            "question": "What was Gallipoli?",
+            "choices": ["Failed landing", "City battle", "Naval battle", "Gas attack"]
+        },
+        {
+            "question": "Which side lost WWI?",
+            "choices": ["Central Powers", "Triple Entente", "Allied Powers", "United Nations"]
+        },
+        {
+            "question": "What group included France?",
+            "choices": ["Allied Powers", "Central Powers", "Axis Powers", "Eastern Bloc"]
+        },
+        {
+            "question": "Which country was neutral?",
+            "choices": ["Switzerland", "France", "Italy", "Russia"]
+        },
+        {
+            "question": "Who led US forces in WWI?",
+            "choices": ["Pershing", "Eisenhower", "Patton", "MacArthur"]
+        },
+        {
+            "question": "What was the Schlieffen Plan?",
+            "choices": ["Germany's plan", "Russia’s plan", "France’s plan", "USA’s plan"]
+        },
+        {
+            "question": "Who proposed peace in 1918?",
+            "choices": ["Woodrow Wilson", "Lloyd George", "Clemenceau", "Churchill"]
+        }
+],
+    "WWII": [
+        {
+            "question": "Who was the leader of Nazi Germany?",
+            "choices": ["Adolf Hitler", "Winston Churchill", "Joseph Stalin", "Benito Mussolini"]
+        },
+        {
+            "question": "What year did WWII begin?",
+            "choices": ["1939", "1937", "1941", "1945"]
+        },
+        {
+            "question": "Which country was invaded first?",
+            "choices": ["Poland", "France", "Belgium", "Norway"]
+        },
+        {
+            "question": "Which battle was in the sky?",
+            "choices": ["Battle of Britain", "Battle of Midway", "Battle of Kursk", "Battle of Berlin"]
+        },
+        {
+            "question": "Who was UK Prime Minister in 1940?",
+            "choices": ["Winston Churchill", "Neville Chamberlain", "David Lloyd George", "Clement Attlee"]
+        },
+        {
+            "question": "What was Hitler's party?",
+            "choices": ["Nazi Party", "Communist Party", "Labour Party", "Fascist Party"]
+        },
+        {
+            "question": "What was D-Day?",
+            "choices": ["Normandy landing", "Pearl Harbor", "Hiroshima bomb", "Stalingrad attack"]
+        },
+        {
+            "question": "What country did Germany ally with?",
+            "choices": ["Italy", "France", "Soviet Union", "USA"]
+        },
+        {
+            "question": "What city was nuked first?",
+            "choices": ["Hiroshima", "Tokyo", "Nagasaki", "Osaka"]
+        },
+        {
+            "question": "Who was US president in 1945?",
+            "choices": ["Harry Truman", "Franklin Roosevelt", "Eisenhower", "Herbert Hoover"]
+        },
+        {
+            "question": "What was Auschwitz?",
+            "choices": ["Death camp", "Air base", "City", "Battlefield"]
+        },
+        {
+            "question": "Which country used Kamikaze?",
+            "choices": ["Japan", "Germany", "Italy", "Russia"]
+        },
+        {
+            "question": "Who led the USSR?",
+            "choices": ["Joseph Stalin", "Vladimir Lenin", "Leon Trotsky", "Boris Yeltsin"]
+        },
+        {
+            "question": "What pact split Poland?",
+            "choices": ["Molotov-Ribbentrop", "Munich Agreement", "Yalta Pact", "Versailles Pact"]
+        },
+        {
+            "question": "What year did WWII end?",
+            "choices": ["1945", "1943", "1944", "1946"]
+        },
+        {
+            "question": "What was the Axis?",
+            "choices": ["Germany & allies", "USA & allies", "France & allies", "UN founders"]
+        },
+        {
+            "question": "What was the Allies?",
+            "choices": ["USA, UK, USSR", "Germany, Italy", "Japan, China", "France, Austria"]
+        },
+        {
+            "question": "What was the Blitz?",
+            "choices": ["UK bombings", "French invasion", "Desert war", "Pacific raid"]
+        },
+        {
+            "question": "Which battle was in Russia?",
+            "choices": ["Stalingrad", "El Alamein", "Normandy", "Midway"]
+        },
+        {
+            "question": "What city hosted trials post-WWII?",
+            "choices": ["Nuremberg", "Berlin", "Tokyo", "London"]
+        },
+        {
+            "question": "Who was Mussolini?",
+            "choices": ["Italian dictator", "German general", "UK leader", "French spy"]
+        },
+        {
+            "question": "Who commanded US troops?",
+            "choices": ["Dwight Eisenhower", "Douglas MacArthur", "George Patton", "Omar Bradley"]
+        },
+        {
+            "question": "What was Hitler's book?",
+            "choices": ["Mein Kampf", "Das Kapital", "War Diary", "The Fuhrer"]
+        },
+        {
+            "question": "What was Operation Barbarossa?",
+            "choices": ["Invasion of USSR", "D-Day code name", "UK bombing", "Japan plan"]
+        },
+        {
+            "question": "Which country was neutral?",
+            "choices": ["Switzerland", "France", "USSR", "Italy"]
+        },
+        {
+            "question": "Where is Pearl Harbor?",
+            "choices": ["Hawaii", "Japan", "Philippines", "Alaska"]
+        },
+        {
+            "question": "What was the Manhattan Project?",
+            "choices": ["A-bomb project", "Spy program", "Radar system", "German invasion"]
+        },
+        {
+            "question": "Who was FDR?",
+            "choices": ["US President", "Nazi leader", "UK general", "Soviet officer"]
+        },
+        {
+            "question": "What was the Holocaust?",
+            "choices": ["Mass genocide", "Naval war", "City siege", "Spy network"]
+        },
+        {
+            "question": "What ended Japan’s war?",
+            "choices": ["Atomic bombs", "Land invasion", "Air raids", "Naval blockade"]
+        }
+],
+    "Cold War": [
+        {
+            "question": "What was the Cold War?",
+            "choices": ["Ideological war", "Nuclear war", "Civil war", "Trade war"]
+        },
+        {
+            "question": "Which two countries led the Cold War?",
+            "choices": ["USA and USSR", "China and UK", "France and Japan", "India and Germany"]
+        },
+        {
+            "question": "What did NATO stand for?",
+            "choices": ["Western alliance", "US Army", "Nuclear agency", "Trade pact"]
+        },
+        {
+            "question": "What was the USSR?",
+            "choices": ["Soviet Union", "Germany", "China", "Yugoslavia"]
+        },
+        {
+            "question": "What was the Iron Curtain?",
+            "choices": ["Divide in Europe", "Nuclear wall", "War front", "Cold zone"]
+        },
+        {
+            "question": "Who was US President during Cuban Crisis?",
+            "choices": ["John F. Kennedy", "Ronald Reagan", "Harry Truman", "George Bush"]
+        },
+        {
+            "question": "Who led the USSR in 1962?",
+            "choices": ["Nikita Khrushchev", "Stalin", "Lenin", "Putin"]
+        },
+        {
+            "question": "What was the Berlin Wall?",
+            "choices": ["East-West barrier", "USSR base", "Nuclear bunker", "Trade gate"]
+        },
+        {
+            "question": "When did the Cold War end?",
+            "choices": ["1991", "1984", "1975", "2001"]
+        },
+        {
+            "question": "What was the space race?",
+            "choices": ["US vs USSR tech", "Alien war", "Jet fight", "Trade plan"]
+        },
+        {
+            "question": "Who was the USSR's rival?",
+            "choices": ["United States", "Germany", "Japan", "India"]
+        },
+        {
+            "question": "What was the Warsaw Pact?",
+            "choices": ["USSR alliance", "Peace treaty", "Spy plan", "Trade deal"]
+        },
+        {
+            "question": "What was MAD?",
+            "choices": ["Mutual destruction", "US missile", "Spy agency", "Peace group"]
+        },
+        {
+            "question": "Who was the KGB?",
+            "choices": ["Soviet spies", "US agency", "Army squad", "NATO base"]
+        },
+        {
+            "question": "What war was part of Cold War?",
+            "choices": ["Vietnam War", "WWII", "Iraq War", "Korean War"]
+        },
+        {
+            "question": "What was McCarthyism?",
+            "choices": ["Red scare", "Nuclear plan", "USSR rule", "US military"]
+        },
+        {
+            "question": "What does USSR mean?",
+            "choices": ["Soviet Union", "Red Army", "Iron State", "Union State"]
+        },
+        {
+            "question": "What was the Cuban Crisis?",
+            "choices": ["Missile threat", "Trade war", "Spy game", "Naval attack"]
+        },
+        {
+            "question": "Which side won the Cold War?",
+            "choices": ["United States", "Soviet Union", "No one", "Germany"]
+        },
+        {
+            "question": "What was détente?",
+            "choices": ["Easing tensions", "War plan", "Spy base", "Wall build"]
+        },
+        {
+            "question": "Who was Gorbachev?",
+            "choices": ["USSR leader", "US spy", "US general", "German PM"]
+        },
+        {
+            "question": "What was perestroika?",
+            "choices": ["USSR reform", "Spy agency", "Peace treaty", "Code name"]
+        },
+        {
+            "question": "What does 'Cold' mean in Cold War?",
+            "choices": ["No direct fight", "Winter war", "Spy game", "Arctic area"]
+        },
+        {
+            "question": "Which city was divided?",
+            "choices": ["Berlin", "Moscow", "Seoul", "Paris"]
+        },
+        {
+            "question": "What country became communist?",
+            "choices": ["East Germany", "France", "Spain", "Norway"]
+        },
+        {
+            "question": "What was the Truman Doctrine?",
+            "choices": ["Anti-communism", "Spy act", "Nuclear pact", "Trade deal"]
+        },
+        {
+            "question": "What was the arms race?",
+            "choices": ["Nuclear buildup", "Space race", "Spy war", "Trade deal"]
+        },
+        {
+            "question": "What was the Red Scare?",
+            "choices": ["Fear of communism", "Cold war start", "Soviet anthem", "USSR army"]
+        },
+        {
+            "question": "Where was the Korean War?",
+            "choices": ["Korean Peninsula", "Japan", "Vietnam", "China"]
+        },
+        {
+            "question": "What wall fell in 1989?",
+            "choices": ["Berlin Wall", "Iron Curtain", "China Wall", "NATO fence"]
+        }
+]
+
 }
