@@ -1,6 +1,8 @@
 {
     "French Rev.":
-        {"question":"It works"}
+        {"question":"It works",
+        "choices":["0", "1","2","3"]
+    }
 
 
 

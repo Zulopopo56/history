@@ -28,6 +28,7 @@ class Theme_ChoiceMenu:
         self.frame = ctk.CTkFrame(master=root, width=500, height=600)
         self.frame.pack(expand=True)
         self.frame.pack_propagate(False)
+        
 
         self.title = ctk.CTkLabel(self.frame, text="Choose a theme", font=ctk.CTkFont(size=24, weight="bold"))
         self.title.pack(pady=20)
@@ -89,7 +90,10 @@ class QuestionMenu:
         self.title.pack(pady=20)
         self.question_text = ctk.CTkLabel(self.frame, text=all_questions[theme]["question"], font=ctk.CTkFont(size=24, weight="bold"))
         self.question_text.pack(pady=20)
-
+        self.options = all_questions[theme]["choices"]
+        for option in self.options:
+            option_button = ctk.CTkButton(self.frame, text=option, command=lambda opt=option: print(f"Selected option: {opt}"), width=200, height=50)
+            option_button.pack(pady=10)
         self.back_button = ctk.CTkButton(self.frame, text="Back", command=self.back_button_callback, width=200, height=50)
         self.back_button.pack(pady=20)
 
