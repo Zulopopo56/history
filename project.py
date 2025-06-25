@@ -91,6 +91,8 @@ class QuestionMenu:
         self.frame.pack(expand=True)
         self.frame.pack_propagate(False)
 
+        self.points = 0
+        
         self.back_button = BackButton(self.frame, command=self.back_button_callback)
 
         self.title = ctk.CTkLabel(self.frame, text=f"Questions for {topic}", font=ctk.CTkFont(size=24, weight="bold"))
@@ -107,10 +109,12 @@ class QuestionMenu:
         self.create_question(self.all_questions)
     def create_question(self, all_questions):
         if hasattr(self, "question_text"):
-            print("Destroying previous question text")
             self.question_text.destroy()
-        if hasattr(self, "options_frame"):
             self.options_frame.destroy()
+        if len(self.all_questions[self.topic]) == 0:
+            print("No more questions available for this topic.")
+            self.result()
+            return 0
         self.current_question = random.choice(all_questions[self.topic])
         all_questions[self.topic].remove(self.current_question)
         self.question_text = ctk.CTkLabel(
@@ -125,7 +129,7 @@ class QuestionMenu:
         self.options_frame = ctk.CTkFrame(self.frame)
         self.options_frame.pack(side="bottom", pady=30)
         
-        self.points = 0
+        
         
         self.options = self.current_question["choices"]
         sequence =[0,1,2,3]
@@ -141,6 +145,15 @@ class QuestionMenu:
                 height=50
             )
             option_button.grid(row=row, column=col, padx=10, pady=10, sticky="nsew")
+    def result(self):
+        self.final_score = ctk.CTkLabel(
+                self.frame,
+                text=f"Quiz finished! Your score: {self.points}/30",
+                font=ctk.CTkFont(size=24, weight="bold"),
+                wraplength=400,
+                justify="center"
+            )
+        self.final_score.pack(pady=20)
     def back_button_callback(self):
         print("Back button clicked")
         self.frame.destroy()
