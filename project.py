@@ -44,7 +44,7 @@ class Theme_ChoiceMenu:
         for index, theme in enumerate(self.themes):
             row = index // 2
             col = index % 2
-            print("Created")
+            print("Created", index, "button")
             card = ctk.CTkFrame(master=self.grid_frame, width=200, height=200, corner_radius=5)
             card.grid(row=row, column=col, padx=10, pady=10)
             card.grid_propagate(False)
@@ -67,11 +67,31 @@ class Theme_ChoiceMenu:
     def select_theme(self, theme):
         print("Selected theme:", theme["name"])
         self.frame.destroy()
-    
+        question_menu = QuestionMenu(self.root, theme["name"])
+
     def back_button_callback(self):
         print("Back button clicked")
         self.frame.destroy()
         main_menu= MainMenu(app)
+
+class QuestionMenu:
+    def __init__(self, root, theme):
+        self.root = root
+        self.theme = theme
+        self.frame = ctk.CTkFrame(master=root, width=500, height=600)
+        self.frame.pack(expand=True)
+        self.frame.pack_propagate(False)
+
+        self.title = ctk.CTkLabel(self.frame, text=f"Questions for {theme}", font=ctk.CTkFont(size=24, weight="bold"))
+        self.title.pack(pady=20)
+
+        self.back_button = ctk.CTkButton(self.frame, text="Back", command=self.back_button_callback, width=200, height=50)
+        self.back_button.pack(pady=20)
+
+    def back_button_callback(self):
+        print("Back button clicked")
+        self.frame.destroy()
+        Theme_ChoiceMenu(self.root, main_menu)
 app = ctk.CTk()
 app.geometry("600x700")
 ctk.set_appearance_mode("dark")
