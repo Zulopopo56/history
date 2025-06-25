@@ -93,8 +93,17 @@ class QuestionMenu:
 
         self.back_button = BackButton(self.frame, command=self.back_button_callback)
 
+        self.title = ctk.CTkLabel(self.frame, text=f"Questions for {topic}", font=ctk.CTkFont(size=24, weight="bold"))
+        self.title.pack(pady=20)
+
         current_question = random.choice(all_questions[topic])
-        self.question_text = ctk.CTkLabel(self.frame, text=current_question["question"], font=ctk.CTkFont(size=24, weight="bold"))
+        self.question_text = ctk.CTkLabel(
+            self.frame,
+            text=current_question["question"],
+            font=ctk.CTkFont(size=24, weight="bold"),
+            wraplength=400,
+            justify="center"
+        )
         self.question_text.pack(pady=20)
         
         self.options_frame = ctk.CTkFrame(self.frame)
