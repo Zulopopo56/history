@@ -93,12 +93,26 @@ class QuestionMenu:
 
         self.title = ctk.CTkLabel(self.frame, text=f"Questions for {theme}", font=ctk.CTkFont(size=24, weight="bold"))
         self.title.pack(pady=20)
+
         self.question_text = ctk.CTkLabel(self.frame, text=all_questions[theme]["question"], font=ctk.CTkFont(size=24, weight="bold"))
         self.question_text.pack(pady=20)
+        
+        self.options_frame = ctk.CTkFrame(self.frame)
+        self.options_frame.pack(side="bottom", pady=30)
+
         self.options = all_questions[theme]["choices"]
-        for option in self.options:
-            option_button = ctk.CTkButton(self.frame, text=option, command=lambda opt=option: print(f"Selected option: {opt}"), width=200, height=50)
-            option_button.pack(pady=10)
+
+        for idx, option in enumerate(self.options):
+            row = idx // 2
+            col = idx % 2
+            option_button = ctk.CTkButton(
+                self.options_frame,
+                text=option,
+                command=lambda opt=option: print(f"Selected option: {opt}"),
+                width=180,
+                height=50
+            )
+            option_button.grid(row=row, column=col, padx=10, pady=10, sticky="nsew")
 
     def back_button_callback(self):
         print("Back button clicked")
