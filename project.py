@@ -110,14 +110,15 @@ class QuestionMenu:
         self.options_frame.pack(side="bottom", pady=30)
 
         self.options = current_question["choices"]
-
-        for idx, option in enumerate(self.options):
+        sequence =[0,1,2,3]
+        random.shuffle(sequence)
+        for idx in range (4):
             row = idx // 2
             col = idx % 2
             option_button = ctk.CTkButton(
                 self.options_frame,
-                text=option,
-                command=lambda opt=option: print(f"Selected option: {opt}"),
+                text=self.options[sequence[idx]],
+                command=lambda opt=sequence[idx]: print("Correct answer!" if opt == 0 else "Wrong answer!"),
                 width=180,
                 height=50
             )
