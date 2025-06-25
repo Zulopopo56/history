@@ -86,7 +86,7 @@ class QuestionMenu:
         self.root = root
         self.topic = topic
         with open("questions.json", "r", encoding="utf-8") as f:
-            all_questions = json.load(f)
+            self.all_questions = json.load(f)
         self.frame = ctk.CTkFrame(master=root, width=500, height=600)
         self.frame.pack(expand=True)
         self.frame.pack_propagate(False)
@@ -96,10 +96,26 @@ class QuestionMenu:
         self.title = ctk.CTkLabel(self.frame, text=f"Questions for {topic}", font=ctk.CTkFont(size=24, weight="bold"))
         self.title.pack(pady=20)
 
-        current_question = random.choice(all_questions[topic])
+        self.create_question(self.all_questions) 
+        
+    def check_answer(self, selected_option):
+        if selected_option == 0:
+            print("Correct answer!")
+            self.points += 1
+        else:
+            print("Wrong answer!")
+        self.create_question(self.all_questions)
+    def create_question(self, all_questions):
+        if hasattr(self, "question_text"):
+            print("Destroying previous question text")
+            self.question_text.destroy()
+        if hasattr(self, "options_frame"):
+            self.options_frame.destroy()
+        self.current_question = random.choice(all_questions[self.topic])
+        all_questions[self.topic].remove(self.current_question)
         self.question_text = ctk.CTkLabel(
             self.frame,
-            text=current_question["question"],
+            text=self.current_question["question"],
             font=ctk.CTkFont(size=24, weight="bold"),
             wraplength=400,
             justify="center"
@@ -108,8 +124,10 @@ class QuestionMenu:
         
         self.options_frame = ctk.CTkFrame(self.frame)
         self.options_frame.pack(side="bottom", pady=30)
-
-        self.options = current_question["choices"]
+        
+        self.points = 0
+        
+        self.options = self.current_question["choices"]
         sequence =[0,1,2,3]
         random.shuffle(sequence)
         for idx in range (4):
@@ -118,12 +136,11 @@ class QuestionMenu:
             option_button = ctk.CTkButton(
                 self.options_frame,
                 text=self.options[sequence[idx]],
-                command=lambda opt=sequence[idx]: print("Correct answer!" if opt == 0 else "Wrong answer!"),
+                command=lambda opt=sequence[idx]: self.check_answer(opt),
                 width=180,
                 height=50
             )
             option_button.grid(row=row, column=col, padx=10, pady=10, sticky="nsew")
-
     def back_button_callback(self):
         print("Back button clicked")
         self.frame.destroy()
