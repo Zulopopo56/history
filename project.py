@@ -1,6 +1,10 @@
 import customtkinter as ctk
 from PIL import Image
 import json
+class BackButton(ctk.CTkButton):
+    def __init__(self, master, command, **kwargs):
+        super().__init__(master, text="←", width=40, height=40, command=command, fg_color="transparent", text_color="white", font=ctk.CTkFont(size=20), **kwargs)
+        self.place(x=10, y=10)
 class MainMenu:
     def __init__(self, root):
         self.root = root
@@ -28,7 +32,8 @@ class Theme_ChoiceMenu:
         self.frame = ctk.CTkFrame(master=root, width=500, height=600)
         self.frame.pack(expand=True)
         self.frame.pack_propagate(False)
-        
+
+        self.back_button = BackButton(self.frame, command=self.back_button_callback)
 
         self.title = ctk.CTkLabel(self.frame, text="Choose a theme", font=ctk.CTkFont(size=24, weight="bold"))
         self.title.pack(pady=20)
@@ -63,8 +68,6 @@ class Theme_ChoiceMenu:
             card.bind("<Button-1>", lambda e, t=theme: self.select_theme(t))
             label.bind("<Button-1>", lambda e, t=theme: self.select_theme(t))
             image_label.bind("<Button-1>", lambda e, t=theme: self.select_theme(t))
-        self.back_button = ctk.CTkButton(self.frame, text="Back", command=self.back_button_callback, width=200, height=50)
-        self.back_button.pack(pady=20)
     
     def select_theme(self, theme):
         print("Selected theme:", theme["name"])
@@ -86,6 +89,8 @@ class QuestionMenu:
         self.frame.pack(expand=True)
         self.frame.pack_propagate(False)
 
+        self.back_button = BackButton(self.frame, command=self.back_button_callback)
+
         self.title = ctk.CTkLabel(self.frame, text=f"Questions for {theme}", font=ctk.CTkFont(size=24, weight="bold"))
         self.title.pack(pady=20)
         self.question_text = ctk.CTkLabel(self.frame, text=all_questions[theme]["question"], font=ctk.CTkFont(size=24, weight="bold"))
@@ -94,8 +99,6 @@ class QuestionMenu:
         for option in self.options:
             option_button = ctk.CTkButton(self.frame, text=option, command=lambda opt=option: print(f"Selected option: {opt}"), width=200, height=50)
             option_button.pack(pady=10)
-        self.back_button = ctk.CTkButton(self.frame, text="Back", command=self.back_button_callback, width=200, height=50)
-        self.back_button.pack(pady=20)
 
     def back_button_callback(self):
         print("Back button clicked")
