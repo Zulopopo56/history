@@ -1,9 +1,124 @@
 {
-    "French Rev.":
-        {"question":"It works",
-        "choices":["0", "1","2","3"]
-    }
-
-
-
+    "French Rev.": [
+        {
+            "question": "What event marked the start of the French Revolution?",
+            "choices": ["Bastille", "Waterloo", "Trafalgar", "Versailles"]
+        },
+        {
+            "question": "Who led the Reign of Terror during the Revolution?",
+            "choices": ["Robespierre", "Napoleon", "Danton", "Marat"]
+        },
+        {
+            "question": "What was the name of Napoleon’s law code?",
+            "choices": ["Napoleonic", "Imperial", "Civil", "National"]
+        },
+        {
+            "question": "Where was Napoleon finally defeated?",
+            "choices": ["Waterloo", "Moscow", "Elba", "Vienna"]
+        },
+        {
+            "question": "Who was king of France at the start of the Revolution?",
+            "choices": ["Louis XVI", "Louis XV", "Charles X", "Louis XIV"]
+        },
+        {
+            "question": "Which French queen was executed during the Revolution?",
+            "choices": ["Antoinette", "Catherine", "Isabella", "Joan"]
+        },
+        {
+            "question": "What form of government ruled France before 1789?",
+            "choices": ["Monarchy", "Republic", "Empire", "Democracy"]
+        },
+        {
+            "question": "In what year did the Bastille fall?",
+            "choices": ["1789", "1793", "1815", "1776"]
+        },
+        {
+            "question": "Which estate paid most of the taxes in pre-revolutionary France?",
+            "choices": ["Third Estate", "First Estate", "Nobility", "Clergy"]
+        },
+        {
+            "question": "What title did Napoleon take after rising to power?",
+            "choices": ["Emperor", "General", "King", "Consul"]
+        },
+        {
+            "question": "Where was Napoleon born?",
+            "choices": ["Corsica", "Elba", "Paris", "Nice"]
+        },
+        {
+            "question": "When did Napoleon crown himself emperor?",
+            "choices": ["1804", "1799", "1815", "1801"]
+        },
+        {
+            "question": "Who was Napoleon’s main British rival on land?",
+            "choices": ["Wellington", "Nelson", "George III", "Churchill"]
+        },
+        {
+            "question": "Where was Napoleon exiled for the first time?",
+            "choices": ["Elba", "Corsica", "Malta", "Sardinia"]
+        },
+        {
+            "question": "Which major battle took place during Napoleon’s invasion of Russia?",
+            "choices": ["Borodino", "Trafalgar", "Leipzig", "Austerlitz"]
+        },
+        {
+            "question": "Who helped write the Declaration of the Rights of Man?",
+            "choices": ["Lafayette", "Napoleon", "Robespierre", "Voltaire"]
+        },
+        {
+            "question": "What device became a symbol of the Reign of Terror?",
+            "choices": ["Guillotine", "Cannon", "Sword", "Crossbow"]
+        },
+        {
+            "question": "What was the name of the prison stormed in 1789?",
+            "choices": ["Bastille", "Conciergerie", "Temple", "La Santé"]
+        },
+        {
+            "question": "What was the name of the radical political group led by Robespierre?",
+            "choices": ["Jacobins", "Girondins", "Royalists", "Bonapartists"]
+        },
+        {
+            "question": "What government replaced the monarchy in 1792?",
+            "choices": ["French Republic", "National Assembly", "Consulate", "Empire"]
+        },
+        {
+            "question": "What island was Napoleon exiled to after his defeat at Waterloo?",
+            "choices": ["Saint Helena", "Elba", "Corsica", "Sicily"]
+        },
+        {
+            "question": "What economic crisis helped spark the French Revolution?",
+            "choices": ["Food shortage", "Stock crash", "Trade war", "Bank failure"]
+        },
+        {
+            "question": "What document declared that all men are born free and equal?",
+            "choices": ["Declaration of the Rights of Man", "Constitution of 1791", "Napoleonic Code", "Treaty of Paris"]
+        },
+        {
+            "question": "Which estate included the clergy?",
+            "choices": ["First Estate", "Second Estate", "Third Estate", "Fourth Estate"]
+        },
+        {
+            "question": "Who was the famous revolutionary woman executed in 1793?",
+            "choices": ["Olympe de Gouges", "Marie Antoinette", "Charlotte Corday", "Madame Roland"]
+        },
+        {
+            "question": "What was Napoleon’s 1812 campaign aimed at conquering?",
+            "choices": ["Russia", "Britain", "Austria", "Spain"]
+        },
+        {
+            "question": "Which naval battle ended Napoleon’s hopes of invading Britain?",
+            "choices": ["Trafalgar", "Austerlitz", "Leipzig", "Borodino"]
+        },
+        {
+            "question": "Who commanded the British fleet at Trafalgar?",
+            "choices": ["Nelson", "Wellington", "Cornwallis", "Drake"]
+        },
+        {
+            "question": "Which city became the revolutionary capital of France?",
+            "choices": ["Paris", "Lyon", "Versailles", "Marseille"]
+        },
+        {
+            "question": "What was the name of the French national anthem born during the Revolution?",
+            "choices": ["La Marseillaise", "Ode to Joy", "Rule Britannia", "Carmagnole"]
+        }
+    ]
 }

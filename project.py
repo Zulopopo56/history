@@ -94,13 +94,13 @@ class QuestionMenu:
         self.title = ctk.CTkLabel(self.frame, text=f"Questions for {theme}", font=ctk.CTkFont(size=24, weight="bold"))
         self.title.pack(pady=20)
 
-        self.question_text = ctk.CTkLabel(self.frame, text=all_questions[theme]["question"], font=ctk.CTkFont(size=24, weight="bold"))
+        self.question_text = ctk.CTkLabel(self.frame, text=all_questions[theme][0]["question"], font=ctk.CTkFont(size=24, weight="bold"))
         self.question_text.pack(pady=20)
         
         self.options_frame = ctk.CTkFrame(self.frame)
         self.options_frame.pack(side="bottom", pady=30)
 
-        self.options = all_questions[theme]["choices"]
+        self.options = all_questions[theme][0]["choices"]
 
         for idx, option in enumerate(self.options):
             row = idx // 2
