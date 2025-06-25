@@ -23,9 +23,9 @@ class MainMenu:
     def start_button_callback(self):
         print("Start button clicked")
         self.frame.destroy()
-        Theme_ChoiceMenu(self.root, self)
+        Topic_ChoiceMenu(self.root, self)
 
-class Theme_ChoiceMenu:
+class Topic_ChoiceMenu:
     def __init__(self, root, main_menu):
         self.root = root
         self.main_menu = main_menu
@@ -35,10 +35,10 @@ class Theme_ChoiceMenu:
 
         self.back_button = BackButton(self.frame, command=self.back_button_callback)
 
-        self.title = ctk.CTkLabel(self.frame, text="Choose a theme", font=ctk.CTkFont(size=24, weight="bold"))
+        self.title = ctk.CTkLabel(self.frame, text="Choose a topic", font=ctk.CTkFont(size=24, weight="bold"))
         self.title.pack(pady=20)
 
-        self.themes = [
+        self.topics = [
             {"name": "French Rev.", "image": "french_rev.jpg"},
             {"name": "WWI", "image": "ww1.jpg"},
             {"name": "WWII", "image": "ww2.jpg"},
@@ -48,7 +48,7 @@ class Theme_ChoiceMenu:
         self.grid_frame.pack(expand=True)
         self.grid_frame.pack_propagate(False)
         
-        for index, theme in enumerate(self.themes):
+        for index, topic in enumerate(self.topics):
             row = index // 2
             col = index % 2
             print("Created", index, "button")
@@ -57,22 +57,22 @@ class Theme_ChoiceMenu:
             card.grid_propagate(False)
             card.pack_propagate(False)
 
-            label = ctk.CTkLabel(card, text=theme["name"], font=ctk.CTkFont(size=16, weight="bold"))
+            label = ctk.CTkLabel(card, text=topic["name"], font=ctk.CTkFont(size=16, weight="bold"))
             label.pack(pady=(10, 5))
 
-            img = Image.open(theme["image"])
+            img = Image.open(topic["image"])
             image = ctk.CTkImage(light_image=img, size=(150, 150))
             image_label = ctk.CTkLabel(card, image=image, text="")
             image_label.pack()
 
-            card.bind("<Button-1>", lambda e, t=theme: self.select_theme(t))
-            label.bind("<Button-1>", lambda e, t=theme: self.select_theme(t))
-            image_label.bind("<Button-1>", lambda e, t=theme: self.select_theme(t))
+            card.bind("<Button-1>", lambda e, t=topic: self.select_topic(t))
+            label.bind("<Button-1>", lambda e, t=topic: self.select_topic(t))
+            image_label.bind("<Button-1>", lambda e, t=topic: self.select_topic(t))
     
-    def select_theme(self, theme):
-        print("Selected theme:", theme["name"])
+    def select_topic(self, topic):
+        print("Selected topic:", topic["name"])
         self.frame.destroy()
-        question_menu = QuestionMenu(self.root, theme["name"])
+        question_menu = QuestionMenu(self.root, topic["name"])
 
     def back_button_callback(self):
         print("Back button clicked")
@@ -80,9 +80,9 @@ class Theme_ChoiceMenu:
         main_menu= MainMenu(app)
 
 class QuestionMenu:
-    def __init__(self, root, theme):
+    def __init__(self, root, topic):
         self.root = root
-        self.theme = theme
+        self.topic = topic
         with open("questions.json", "r", encoding="utf-8") as f:
             all_questions = json.load(f)
         self.frame = ctk.CTkFrame(master=root, width=500, height=600)
@@ -91,16 +91,16 @@ class QuestionMenu:
 
         self.back_button = BackButton(self.frame, command=self.back_button_callback)
 
-        self.title = ctk.CTkLabel(self.frame, text=f"Questions for {theme}", font=ctk.CTkFont(size=24, weight="bold"))
+        self.title = ctk.CTkLabel(self.frame, text=f"Questions for {topic}", font=ctk.CTkFont(size=24, weight="bold"))
         self.title.pack(pady=20)
 
-        self.question_text = ctk.CTkLabel(self.frame, text=all_questions[theme][0]["question"], font=ctk.CTkFont(size=24, weight="bold"))
+        self.question_text = ctk.CTkLabel(self.frame, text=all_questions[topic][0]["question"], font=ctk.CTkFont(size=24, weight="bold"))
         self.question_text.pack(pady=20)
         
         self.options_frame = ctk.CTkFrame(self.frame)
         self.options_frame.pack(side="bottom", pady=30)
 
-        self.options = all_questions[theme][0]["choices"]
+        self.options = all_questions[topic][0]["choices"]
 
         for idx, option in enumerate(self.options):
             row = idx // 2
@@ -117,7 +117,7 @@ class QuestionMenu:
     def back_button_callback(self):
         print("Back button clicked")
         self.frame.destroy()
-        Theme_ChoiceMenu(self.root, main_menu)
+        Topic_ChoiceMenu(self.root, main_menu)
 app = ctk.CTk()
 app.geometry("600x700")
 ctk.set_appearance_mode("dark")
