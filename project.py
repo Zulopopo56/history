@@ -97,13 +97,6 @@ class QuestionMenu:
 
         self.create_question(self.all_questions) 
         
-    def check_answer(self, selected_option):
-        if selected_option == 0:
-            print("Correct answer!")
-            self.points += 1
-        else:
-            print("Wrong answer!")
-        self.create_question(self.all_questions)
     def create_question(self, all_questions):
         if hasattr(self, "question_text"):
             self.question_text.destroy()
@@ -126,20 +119,37 @@ class QuestionMenu:
         self.options_frame = ctk.CTkFrame(self.frame)
         self.options_frame.pack(side="bottom", pady=30)
         
-        self.options = self.current_question["choices"]
-        sequence =[0,1,2,3]
-        random.shuffle(sequence)
-        for idx in range (4):
+        self.options = self.current_question["choices"].copy()
+        random.shuffle(self.options)
+        self.buttons = []
+        for idx, option in enumerate(self.options):
             row = idx // 2
             col = idx % 2
             option_button = ctk.CTkButton(
                 self.options_frame,
-                text=self.options[sequence[idx]],
-                command=lambda opt=sequence[idx]: self.check_answer(opt),
+                text=option,
+                command=lambda opt=option: self.check_answer(opt),
                 width=180,
                 height=50
             )
             option_button.grid(row=row, column=col, padx=10, pady=10, sticky="nsew")
+            self.buttons.append(option_button)
+    def check_answer(self, selected_option):
+        correct_answer = self.current_question["choices"][0]
+        for btn in self.buttons:
+            btn.configure(state="disabled")
+            if btn.cget("text") == correct_answer:
+                btn.configure(fg_color="green")
+            elif btn.cget("text") == selected_option:
+                btn.configure(fg_color="red")
+            else:
+                btn.configure(fg_color="#333333")
+        if selected_option == correct_answer:
+            print("Correct answer!")
+            self.points += 1
+        else:
+            print("Wrong answer!")
+        self.frame.after(1000, lambda: self.create_question(self.all_questions))
     def result(self):
         self.final_score = ctk.CTkLabel(
                 self.frame,
