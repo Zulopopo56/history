@@ -8,10 +8,12 @@ class Transition:
         self.root = root
         self.frame = None
 
-    def show(self):
-        if self.frame:
-            self.frame.pack(expand=True)
-            self.frame.pack_propagate(False)
+    def show(self, root, width, height, is_back_button):
+        self.frame = ctk.CTkFrame(master=root, width=width, height=height)
+        self.frame.pack(expand=True)
+        self.frame.pack_propagate(False)
+        if is_back_button:
+            self.back_button = BackButton(self.frame, command=self.back_button_callback)
 
     def hide(self):
         if self.frame:
@@ -21,12 +23,13 @@ class BackButton(ctk.CTkButton):
     def __init__(self, master, command, **kwargs):
         super().__init__(master, text="←", width=40, height=40, command=command, fg_color="transparent", text_color="white", font=ctk.CTkFont(size=20), **kwargs)
         self.place(x=10, y=10)
-class MainMenu:
+        
+class MainMenu(Transition):
     def __init__(self, root):
         self.root = root
-        self.frame = ctk.CTkFrame(master=root, width=300, height=300)
-        self.frame.pack(expand=True)
-        self.frame.pack_propagate(False)
+
+        super().__init__(root)
+        self.show(root, 300, 300, False)
 
         self.title = ctk.CTkLabel(self.frame, text="History test", font=ctk.CTkFont(size=26, weight="bold"))
         self.title.pack(pady=30)
@@ -38,18 +41,16 @@ class MainMenu:
         self.exit_button.pack(pady=20)
     def start_button_callback(self):
         print("Start button clicked")
-        self.frame.destroy()
+        self.hide()
         Topic_ChoiceMenu(self.root, self)
 
-class Topic_ChoiceMenu:
+class Topic_ChoiceMenu(Transition):
     def __init__(self, root, main_menu):
         self.root = root
         self.main_menu = main_menu
-        self.frame = ctk.CTkFrame(master=root, width=500, height=600)
-        self.frame.pack(expand=True)
-        self.frame.pack_propagate(False)
-
-        self.back_button = BackButton(self.frame, command=self.back_button_callback)
+        super().__init__(root)
+        self.show(root, 500, 600, True)
+        
 
         self.title = ctk.CTkLabel(self.frame, text="Choose a topic", font=ctk.CTkFont(size=24, weight="bold"))
         self.title.pack(pady=20)
@@ -87,27 +88,24 @@ class Topic_ChoiceMenu:
     
     def select_topic(self, topic):
         print("Selected topic:", topic["name"])
-        self.frame.destroy()
-        question_menu = QuestionMenu(self.root, topic["name"])
+        self.hide()
+        QuestionMenu(self.root, topic["name"])
 
     def back_button_callback(self):
         print("Back button clicked")
-        self.frame.destroy()
-        main_menu= MainMenu(app)
+        self.hide()
+        MainMenu(app)
 
-class QuestionMenu:
+class QuestionMenu(Transition):
     def __init__(self, root, topic):
         self.root = root
         self.topic = topic
         with open("questions.json", "r", encoding="utf-8") as f:
             self.all_questions = json.load(f)
-        self.frame = ctk.CTkFrame(master=root, width=500, height=600)
-        self.frame.pack(expand=True)
-        self.frame.pack_propagate(False)
+        super().__init__(root)
+        self.show(root, 500, 600, True)
 
         self.points = 0
-        
-        self.back_button = BackButton(self.frame, command=self.back_button_callback)
 
         self.create_question(self.all_questions) 
         
@@ -175,7 +173,7 @@ class QuestionMenu:
         self.final_score.pack(pady=20)
     def back_button_callback(self):
         print("Back button clicked")
-        self.frame.destroy()
+        self.hide()
         Topic_ChoiceMenu(self.root, main_menu)
 app = ctk.CTk()
 app.geometry("600x700")
