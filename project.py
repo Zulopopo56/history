@@ -3,6 +3,20 @@ from PIL import Image
 import json
 import random
 
+class Transition:
+    def __init__(self, root):
+        self.root = root
+        self.frame = None
+
+    def show(self):
+        if self.frame:
+            self.frame.pack(expand=True)
+            self.frame.pack_propagate(False)
+
+    def hide(self):
+        if self.frame:
+            self.frame.destroy()
+
 class BackButton(ctk.CTkButton):
     def __init__(self, master, command, **kwargs):
         super().__init__(master, text="←", width=40, height=40, command=command, fg_color="transparent", text_color="white", font=ctk.CTkFont(size=20), **kwargs)
