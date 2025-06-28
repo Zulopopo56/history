@@ -2,8 +2,8 @@ import customtkinter as ctk
 from PIL import Image
 import json
 import random
-
-class Transition:
+from abc import ABC, abstractmethod
+class Transition(ABC):
     def __init__(self, root):
         self.root = root
         self.frame = None
@@ -18,6 +18,13 @@ class Transition:
     def hide(self):
         if self.frame:
             self.frame.destroy()
+    @abstractmethod
+    def show_title(self):
+        pass
+
+    @abstractmethod
+    def back_button_callback(self):
+        pass
 
 class BackButton(ctk.CTkButton):
     def __init__(self, master, command, **kwargs):
@@ -30,15 +37,23 @@ class MainMenu(Transition):
 
         super().__init__(root)
         self.show(root, 300, 300, False)
-
-        self.title = ctk.CTkLabel(self.frame, text="History test", font=ctk.CTkFont(size=26, weight="bold"))
-        self.title.pack(pady=30)
+        
+        self.show_title()
+        
 
         self.start_button = ctk.CTkButton(self.frame, text="Start", command=self.start_button_callback, width=200, height=50)
         self.start_button.pack(pady=20)
 
         self.exit_button = ctk.CTkButton(self.frame, text="Quit", command=self.root.quit, width=200, height=50)
         self.exit_button.pack(pady=20)
+
+    def back_button_callback(self):
+        pass
+
+    def show_title(self):
+            self.title = ctk.CTkLabel(self.frame, text="History test", font=ctk.CTkFont(size=26, weight="bold"))
+            self.title.pack(pady=30)
+            
     def start_button_callback(self):
         print("Start button clicked")
         self.hide()
@@ -50,10 +65,9 @@ class Topic_ChoiceMenu(Transition):
         self.main_menu = main_menu
         super().__init__(root)
         self.show(root, 500, 600, True)
-        
-
-        self.title = ctk.CTkLabel(self.frame, text="Choose a topic", font=ctk.CTkFont(size=24, weight="bold"))
-        self.title.pack(pady=20)
+       
+        self.show_title()
+       
 
         self.topics = [
             {"name": "French Rev.", "image": "french_rev.jpg"},
@@ -85,7 +99,11 @@ class Topic_ChoiceMenu(Transition):
             card.bind("<Button-1>", lambda e, t=topic: self.select_topic(t))
             label.bind("<Button-1>", lambda e, t=topic: self.select_topic(t))
             image_label.bind("<Button-1>", lambda e, t=topic: self.select_topic(t))
-    
+
+    def show_title(self):
+            self.title = ctk.CTkLabel(self.frame, text="Choose a topic", font=ctk.CTkFont(size=24, weight="bold"))
+            self.title.pack(pady=20)
+
     def select_topic(self, topic):
         print("Selected topic:", topic["name"])
         self.hide()
@@ -119,18 +137,9 @@ class QuestionMenu(Transition):
             return 0
         self.current_question = random.choice(all_questions[self.topic])
         all_questions[self.topic].remove(self.current_question)
-        self.question_text = ctk.CTkLabel(
-            self.frame,
-            text=self.current_question["question"],
-            font=ctk.CTkFont(size=24, weight="bold"),
-            wraplength=400,
-            justify="center"
-        )
-        self.question_text.pack(pady=20)
-        
+        self.show_title()
         self.options_frame = ctk.CTkFrame(self.frame)
         self.options_frame.pack(side="bottom", pady=30)
-        
         self.options = self.current_question["choices"].copy()
         random.shuffle(self.options)
         self.buttons = []
@@ -146,6 +155,16 @@ class QuestionMenu(Transition):
             )
             option_button.grid(row=row, column=col, padx=10, pady=10, sticky="nsew")
             self.buttons.append(option_button)
+    def show_title(self):
+        self.question_text = ctk.CTkLabel(
+            self.frame,
+            text=self.current_question["question"],
+            font=ctk.CTkFont(size=24, weight="bold"),
+            wraplength=400,
+            justify="center"
+        )
+        self.question_text.pack(pady=20)
+
     def check_answer(self, selected_option):
         correct_answer = self.current_question["choices"][0]
         for btn in self.buttons:
@@ -162,6 +181,7 @@ class QuestionMenu(Transition):
         else:
             print("Wrong answer!")
         self.frame.after(1000, lambda: self.create_question(self.all_questions))
+
     def result(self):
         self.final_score = ctk.CTkLabel(
                 self.frame,
@@ -171,10 +191,12 @@ class QuestionMenu(Transition):
                 justify="center"
             )
         self.final_score.pack(pady=20)
+
     def back_button_callback(self):
         print("Back button clicked")
         self.hide()
         Topic_ChoiceMenu(self.root, main_menu)
+        
 app = ctk.CTk()
 app.geometry("600x700")
 ctk.set_appearance_mode("dark")
