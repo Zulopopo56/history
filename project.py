@@ -479,7 +479,100 @@ class WWIInfo(TopicInfo):
             font=ctk.CTkFont(size=16),
             text_color="#AAAAAA"
         ).pack()
-        
+class WWIIInfo(TopicInfo):
+    def build_ui(self):
+        self.show_title()
+        tabview = ctk.CTkTabview(self.frame, width=650, height=500)
+        tabview.pack(padx=20, pady=10)
+        tabview.add("European Theater")
+        tabview.add("Pacific Theater") 
+        tabview.add("North Africa")
+        europe = tabview.tab("European Theater")
+        self.create_theater_section(
+            europe,
+            ["UK", "USSR", "USA", "France"],
+            ["Germany", "Italy"],
+            [
+                "1939: Invasion of Poland",
+                "1940: Battle of Britain",
+                "1941: Operation Barbarossa",
+                "1944: D-Day Normandy"
+            ]
+        )
+        pacific = tabview.tab("Pacific Theater")
+        self.create_theater_section(
+            pacific,
+            ["USA", "China", "UK", "Australia"],
+            ["Japan", "Thailand"],
+            [
+                "1941: Pearl Harbor",
+                "1942: Battle of Midway",
+                "1944: Island Hopping",
+                "1945: Atomic Bombs"
+            ]
+        )
+        africa = tabview.tab("North Africa")
+        self.create_theater_section(
+            africa,
+            ["UK", "USA", "Free France"],
+            ["Germany", "Italy"],
+            [
+                "1940-43: Desert Campaign",
+                "1942: El Alamein",
+                "1943: Tunisia Campaign"
+            ]
+        )
+
+    def create_theater_section(self, parent, allies, axis, events):
+        columns = ctk.CTkFrame(parent, fg_color="transparent")
+        columns.pack(fill="both", expand=True)
+        allies_frame = ctk.CTkFrame(columns, fg_color="#1e3a5f")
+        allies_frame.pack(side="left", fill="both", expand=True, padx=5)
+        ctk.CTkLabel(
+            allies_frame, 
+            text="ALLIES",
+            font=ctk.CTkFont(weight="bold")
+        ).pack(pady=5)
+        for country in allies:
+            ctk.CTkLabel(allies_frame, text=f"• {country}").pack(anchor="w", padx=10)
+        axis_frame = ctk.CTkFrame(columns, fg_color="#5f1e1e")
+        axis_frame.pack(side="right", fill="both", expand=True, padx=5)
+        ctk.CTkLabel(
+            axis_frame, 
+            text="AXIS",
+            font=ctk.CTkFont(weight="bold")
+        ).pack(pady=5)
+        for country in axis:
+            ctk.CTkLabel(axis_frame, text=f"• {country}").pack(anchor="w", padx=10)
+        events_frame = ctk.CTkFrame(parent, fg_color="transparent")
+        events_frame.pack(fill="x", pady=10)
+        ctk.CTkLabel(
+            events_frame,
+            text="Key Battles:",
+            font=ctk.CTkFont(weight="bold")
+        ).pack(anchor="w")
+        for event in events:
+            ctk.CTkLabel(
+                events_frame, 
+                text=f"- {event}",
+                wraplength=600,
+                justify="left"
+            ).pack(anchor="w", padx=20)
+
+    def show_title(self):
+        title_frame = ctk.CTkFrame(self.frame, fg_color="transparent")
+        title_frame.pack(fill="x", padx=20, pady=50)
+        ctk.CTkLabel(
+            title_frame,
+            text="WORLD WAR II",
+            font=ctk.CTkFont(size=28, weight="bold")
+        ).pack(pady=10)
+        ctk.CTkLabel(
+            title_frame,
+            text="1939-1945 | Global Conflict",
+            font=ctk.CTkFont(size=16),
+            text_color="#AAAAAA"
+        ).pack()
 app = ctk.CTk()
 app.geometry("800x800")
 ctk.set_appearance_mode("dark")
