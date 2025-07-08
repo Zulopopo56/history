@@ -573,6 +573,87 @@ class WWIIInfo(TopicInfo):
             font=ctk.CTkFont(size=16),
             text_color="#AAAAAA"
         ).pack()
+class ColdWarInfo(TopicInfo):
+    def build_ui(self):
+        self.show_title()
+        main_frame = ctk.CTkFrame(self.frame, fg_color="transparent")
+        main_frame.pack(fill="both", expand=True, padx=20, pady=10)
+        superpowers_frame = ctk.CTkFrame(main_frame, fg_color="transparent")
+        superpowers_frame.pack(fill="x", pady=5)
+        self.create_power_card(superpowers_frame, "USA", "#1e3a5f", [
+            "Leader of NATO",
+            "Marshall Plan",
+            "Containment Policy"
+        ])
+        self.create_power_card(superpowers_frame, "USSR", "#5f1e1e", [
+            "Warsaw Pact",
+            "Five-Year Plans",
+            "Eastern Bloc"
+        ])
+        wars_frame = ctk.CTkFrame(main_frame, fg_color="transparent")
+        wars_frame.pack(fill="x", pady=5)
+        proxy_wars = [
+            ("Korean War (1950-53)", "North vs South Korea"),
+            ("Vietnam War (1955-75)", "Communists vs US/South"),
+            ("Afghan War (1979-89)", "Mujahideen vs Soviets")
+        ]
+        for title, desc in proxy_wars:
+            self.create_event_card(wars_frame, title, desc)
+        crises_frame = ctk.CTkFrame(main_frame, fg_color="transparent")
+        crises_frame.pack(fill="x", pady=5)
+        crises = [
+            ("Berlin Blockade (1948-49)", "First major confrontation"),
+            ("Cuban Missile Crisis (1962)", "Brink of nuclear war"),
+            ("Space Race (1957-69)", "Sputnik to Moon landing")
+        ]
+        for title, desc in crises:
+            self.create_event_card(crises_frame, title, desc)
+
+    def create_power_card(self, parent, title, color, items):
+        card = ctk.CTkFrame(parent, fg_color=color, corner_radius=10)
+        card.pack(side="left", expand=True, padx=5, pady=5)
+        ctk.CTkLabel(
+            card,
+            text=title,
+            font=ctk.CTkFont(size=16, weight="bold"),
+            text_color="#ffffff"
+        ).pack(pady=5)
+        for item in items:
+            ctk.CTkLabel(
+                card,
+                text=f"• {item}",
+                text_color="#ffffff",
+                wraplength=200
+            ).pack(anchor="w", padx=10)
+
+    def create_event_card(self, parent, title, desc):
+        card = ctk.CTkFrame(parent, fg_color="#2a2d30", corner_radius=10)
+        card.pack(side="left", expand=True, padx=5, pady=5)
+        ctk.CTkLabel(
+            card,
+            text=title,
+            font=ctk.CTkFont(weight="bold")
+        ).pack(pady=5)
+        ctk.CTkLabel(
+            card,
+            text=desc,
+            wraplength=200
+        ).pack(padx=5)
+
+    def show_title(self):
+        title_frame = ctk.CTkFrame(self.frame, fg_color="transparent")
+        title_frame.pack(fill="x", padx=20, pady=50)
+        ctk.CTkLabel(
+            title_frame,
+            text="COLD WAR",
+            font=ctk.CTkFont(size=28, weight="bold")
+        ).pack(pady=10)
+        ctk.CTkLabel(
+            title_frame,
+            text="1947-1991 | Ideological Struggle",
+            font=ctk.CTkFont(size=16),
+            text_color="#AAAAAA"
+        ).pack()
 app = ctk.CTk()
 app.geometry("800x800")
 ctk.set_appearance_mode("dark")
